@@ -1,1 +1,45 @@
+# Keys and Constraints: Bank/Fintech Platform
 
+## 1. Primary Keys
+
+Each table has a primary key that uniquely identifies every record.
+
+- Customers: `customer_id`
+- Accounts: `account_id`
+- Transactions: `transaction_id`
+- TransactionLogs: `log_id`
+- Transfers: `transfer_id`
+
+## 2. Foreign Keys
+
+Foreign keys maintain relationships between related tables.
+
+- `Accounts.customer_id` references `Customers.customer_id`.
+- `Transactions.account_id` references `Accounts.account_id`.
+- `TransactionLogs.transaction_id` references `Transactions.transaction_id`.
+- `Transfers.transaction_id` references `Transactions.transaction_id`.
+- `Transfers.source_account_id` references `Accounts.account_id`.
+- `Transfers.destination_account_id` references `Accounts.account_id`.
+
+## 3. Unique Constraints
+
+- Customer email addresses must be unique.
+- Account numbers must be unique.
+- Each transfer record must reference a unique transaction.
+
+## 4. Data Integrity Constraints
+
+- Transaction amounts must be greater than zero.
+- Account balances must not become negative unless an approved overdraft policy permits it.
+- Account status must use approved values, such as `ACTIVE`, `FROZEN`, or `CLOSED`.
+- Transaction status must use approved values, such as `PENDING`, `SUCCESS`, `FAILED`, or `REVERSED`.
+- A transfer's source and destination accounts must be different.
+- All foreign-key references must point to existing records.
+
+## 5. Transaction Safety
+
+Transfers must be processed atomically: either both the debit from the source account and the credit to the destination account succeed, or neither change is committed. Failed transfers must be handled without leaving account balances inconsistent.
+
+## 6. Auditability
+
+Transaction logs should record relevant events, including transaction creation, successful completion, failure, and reversal. Failed or reversed transactions should remain traceable rather than being silently deleted.
