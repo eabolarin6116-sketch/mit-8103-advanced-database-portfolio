@@ -1,0 +1,43 @@
+# Case Study: Bank/Fintech Platform
+
+## 1. Introduction
+
+This project focuses on the design of a relational database for a simulated Bank/Fintech Platform that provides digital financial services to customers. The platform enables customers to maintain accounts and perform financial transactions securely and efficiently.
+
+## 2. Purpose of the System
+
+The purpose of the system is to manage customer information, bank accounts, financial transactions, and transaction audit logs. It aims to maintain accurate account balances, preserve transaction records, and support the investigation of failed or disputed transactions.
+
+## 3. Main Operations
+
+The platform will support the following operations:
+
+- Customer registration and management.
+- Creation and management of customer accounts.
+- Deposits and withdrawals.
+- Transfers between accounts.
+- Reversal of failed or unsuccessful transactions.
+- Recording of transaction logs for auditing account balances and tracking transaction activity.
+
+## 4. Data to Be Stored
+
+The database will store customer details, account information, transaction details, transaction statuses, transaction timestamps, and audit log records. Each account and transaction will have a unique identifier to support reliable identification and record tracking.
+
+## 5. Users of the Database
+
+The main users will include customers who access financial services, authorised bank or fintech staff who manage customer accounts, and administrators or auditors who review transaction records and investigate discrepancies.
+
+## 6. Database Objectives
+
+The database design will aim to:
+
+- Maintain data accuracy and integrity.
+- Prevent invalid or inconsistent account balance updates.
+- Ensure that financial transactions are recorded reliably.
+- Support the reversal of failed transactions without losing transaction history.
+- Provide traceable records for account balance audits.
+- Reduce unnecessary duplication through appropriate database normalisation.
+
+## 7. Scope
+
+This project will focus on the database design and modelling of the platform, including its entities, relationships, relational schema, keys, constraints, and normalisation. The design will also provide a foundation for the later portfolio activities involving query optimisation, transactions and concurrency, NoSQL data models, and distributed or cloud databases.
